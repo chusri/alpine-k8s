@@ -29,6 +29,7 @@ kubernetes docker images with necessary tools
 - [krew](https://github.com/kubernetes-sigs/krew) (latest version when run the build)
 - [vals](https://github.com/helmfile/vals) (latest version when run the build)
 - [kubeconform](https://github.com/yannh/kubeconform) (latest version when run the build)
+- [helmfile](https://github.com/helmfile/helmfile) (latest version when run the build)
 - General tools, such as bash, curl, jq, yq, etc
 
 ### Github Repo

@@ -8,9 +8,10 @@ ARG HELM_VERSION=3.2.1
 ARG KUBECTL_VERSION=1.17.5
 ARG KUSTOMIZE_VERSION=v3.8.1
 ARG KUBESEAL_VERSION=0.18.1
-ARG KREW_VERSION=v0.4.4
+ARG KREW_VERSION=0.4.5
 ARG VALS_VERSION=0.28.1
 ARG KUBECONFORM_VERSION=0.6.3
+ARG HELMFILE_VERSION=0.170.1
 
 # Install helm (latest release)
 # ENV BASE_URL="https://storage.googleapis.com/kubernetes-helm"
@@ -107,5 +108,11 @@ RUN . /envfile && echo $ARCH && \
 RUN . /envfile && echo $ARCH && \
     curl -L https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-${ARCH}.tar.gz -o - | tar xz -C /usr/bin/ && \
     chmod +x /usr/bin/kubeconform
+
+
+# Install helmfile
+RUN . /envfile && echo $ARCH && \
+    curl -sL "https://github.com/helmfile/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_${HELMFILE_VERSION}_$(uname -s)_${ARCH}.tar.gz" | tar xz -C /usr/bin/ && \
+    chmod +x /usr/bin/helmfile
 
 WORKDIR /apps
